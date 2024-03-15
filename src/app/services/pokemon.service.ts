@@ -28,4 +28,11 @@ export class PokemonService {
     const url = `${this.baseUrl}/${name}`;
     return this.http.get<Pokemon>(url);
   }
+
+  getTotalPokemons(): Observable<number> {
+    const url = `${this.baseUrl}?offset=0&limit=1`;
+    return this.http
+      .get<PokemonApiResponse>(url)
+      .pipe(map((response: PokemonApiResponse) => response.count));
+  }
 }
