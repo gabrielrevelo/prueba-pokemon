@@ -1,2 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// POKEMON TYPES COLORS
+
+.normal {
+  background-color: #3C5A66; /* Normal */
+}
+
+.fighting {
+  background-color: #6A1E20; /* Fighting */
+}
+
+.flying {
+  background-color: #22357B; /* Flying */
+}
+
+.poison {
+  background-color: #6C376C; /* Poison */
+}
+
+.ground {
+  background-color: #7D532B; /* Ground */
+}
+
+.rock {
+  background-color: #6D652E; /* Rock */
+}
+
+.bug {
+  background-color: #728914; /* Bug */
+}
+
+.ghost {
+  background-color: #3E4C7E; /* Ghost */
+}
+
+.steel {
+  background-color: #666684; /* Steel */
+}
+
+.fire {
+  background-color: #8C3E10; /* Fire */
+}
+
+.water {
+  background-color: #385AAB; /* Water */
+}
+
+.grass {
+  background-color: #4E943D; /* Grass */
+}
+
+.electric {
+  background-color: #997100; /* Electric */
+}
+
+.psychic {
+  background-color: #8D161C; /* Psychic */
+}
+
+.ice {
+  background-color: #287B7B; /* Ice */
+}
+
+.dragon {
+  background-color: #2E275E; /* Dragon */
+}
+
+.dark {
+  background-color: #382B26; /* Dark */
+}
+
+.fairy {
+  background-color: #94424E; /* Fairy */
+}
+
+.unknown {
+  background-color: #506C69; /* Unknown */
+}
+
+.shadow {
+  background-color: #463F3E; /* Shadow */
+}

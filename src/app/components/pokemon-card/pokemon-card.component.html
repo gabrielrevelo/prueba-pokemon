@@ -1,0 +1,11 @@
+<div class="card text-center" [routerLink]="['/pokemon', pokemon.name]">
+  <div class="card-body">
+    <div>
+      <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
+      <div class="d-flex gap-2 justify-content-center">
+        <span *ngFor="let type of pokemon.types" class="badge" [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>
+      </div>
+    </div>
+  </div>
+  <img [src]="pokemon.sprites.other?.['official-artwork']?.front_default" class="card-img-top" [alt]="pokemon.name">
+</div>
