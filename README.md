@@ -1,27 +1,17 @@
 # PruebaPokemon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Este proyecto es una aplicación de lista de Pokémons desarrollada en Angular 17 que utiliza [PokeAPI](https://pokeapi.co/api/v2/).
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Listado de Pokémon con Paginación:**
+   - [ ] Utiliza el servicio de PokeAPI con la ruta `/pokemon` para listar los Pokémon.
+   - [ ] Implementa la paginación para permitir al usuario navegar entre las diferentes páginas de Pokémon.
 
-## Code scaffolding
+2. **Visualización de Detalles del Pokémon:**
+   - [ ] Permite al usuario hacer clic en un Pokémon de la lista para ver sus detalles.
+   - [ ] Utiliza el servicio de PokeAPI con la ruta `/pokemon/{nombre}` para obtener y mostrar las características relevantes del Pokémon seleccionado.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. **Filtro de Pokémon:**
+   - [ ] Implementa al menos un filtro para permitir al usuario filtrar los Pokémon por alguna característica, como tipo, habilidad, o generación.
+   - [ ] Utiliza los endpoints correspondientes en la documentación de PokeAPI para aplicar el filtro.
