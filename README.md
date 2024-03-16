@@ -9,8 +9,8 @@ Este proyecto es una aplicación de lista de Pokémons desarrollada en Angular 1
    - [x] Implementa la paginación para permitir al usuario navegar entre las diferentes páginas de Pokémon.
 
 2. **Visualización de Detalles del Pokémon:**
-   - [ ] Permite al usuario hacer clic en un Pokémon de la lista para ver sus detalles.
-   - [ ] Utiliza el servicio de PokeAPI con la ruta `/pokemon/{nombre}` para obtener y mostrar las características relevantes del Pokémon seleccionado.
+   - [x] Permite al usuario hacer clic en un Pokémon de la lista para ver sus detalles.
+   - [x] Utiliza el servicio de PokeAPI con la ruta `/pokemon/{nombre}` para obtener y mostrar las características relevantes del Pokémon seleccionado.
 
 3. **Filtro de Pokémon:**
    - [ ] Implementa al menos un filtro para permitir al usuario filtrar los Pokémon por alguna característica, como tipo, habilidad, o generación.

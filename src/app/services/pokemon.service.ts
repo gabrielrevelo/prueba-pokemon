@@ -29,6 +29,10 @@ export class PokemonService {
     return this.http.get<Pokemon>(url);
   }
 
+  getPokemonEvolutionChain(url: string): Observable<any> {
+    return this.http.get(url);
+  }
+
   getTotalPokemons(): Observable<number> {
     const url = `${this.baseUrl}?offset=0&limit=1`;
     return this.http

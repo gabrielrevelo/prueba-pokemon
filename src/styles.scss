@@ -1,83 +1,189 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.cdnfonts.com/css/pokemon-hollow");
+
+.pokemon-text {
+  font-family: "Pokemon Hollow", sans-serif;
+}
 
 // POKEMON TYPES COLORS
+$normal: #3c5a66;
+$fighting: #6a1e20;
+$flying: #22357b;
+$poison: #6c376c;
+$ground: #7d532b;
+$rock: #6d652e;
+$bug: #728914;
+$ghost: #3e4c7e;
+$steel: #666684;
+$fire: #8c3e10;
+$water: #385aab;
+$grass: #4e943d;
+$electric: #997100;
+$psychic: #8d161c;
+$ice: #287b7b;
+$dragon: #2e275e;
+$dark: #382b26;
+$fairy: #94424e;
+$unknown: #506c69;
+$shadow: #463f3e;
+
 
 .normal {
-  background-color: #3C5A66; /* Normal */
+  background-color: $normal;
 }
 
 .fighting {
-  background-color: #6A1E20; /* Fighting */
+  background-color: $fighting;
 }
 
 .flying {
-  background-color: #22357B; /* Flying */
+  background-color: $flying;
 }
 
 .poison {
-  background-color: #6C376C; /* Poison */
+  background-color: $poison;
 }
 
 .ground {
-  background-color: #7D532B; /* Ground */
+  background-color: $ground;
 }
 
 .rock {
-  background-color: #6D652E; /* Rock */
+  background-color: $rock;
 }
 
 .bug {
-  background-color: #728914; /* Bug */
+  background-color: $bug;
 }
 
 .ghost {
-  background-color: #3E4C7E; /* Ghost */
+  background-color: $ghost;
 }
 
 .steel {
-  background-color: #666684; /* Steel */
+  background-color: $steel;
 }
 
 .fire {
-  background-color: #8C3E10; /* Fire */
+  background-color: $fire;
 }
 
 .water {
-  background-color: #385AAB; /* Water */
+  background-color: $water;
 }
 
 .grass {
-  background-color: #4E943D; /* Grass */
+  background-color: $grass;
 }
 
 .electric {
-  background-color: #997100; /* Electric */
+  background-color: $electric;
 }
 
 .psychic {
-  background-color: #8D161C; /* Psychic */
+  background-color: $psychic;
 }
 
 .ice {
-  background-color: #287B7B; /* Ice */
+  background-color: $ice;
 }
 
 .dragon {
-  background-color: #2E275E; /* Dragon */
+  background-color: $dragon;
 }
 
 .dark {
-  background-color: #382B26; /* Dark */
+  background-color: $dark;
 }
 
 .fairy {
-  background-color: #94424E; /* Fairy */
+  background-color: $fairy;
 }
 
 .unknown {
-  background-color: #506C69; /* Unknown */
+  background-color: $unknown;
 }
 
 .shadow {
-  background-color: #463F3E; /* Shadow */
+  background-color: $shadow;
+}
+
+.normal-text {
+  color: darken($normal, 10%);
+}
+
+.fighting-text {
+  color: darken($fighting, 10%);
+}
+
+.flying-text {
+  color: darken($flying, 10%);
+}
+
+.poison-text {
+  color: darken($poison, 10%);
+}
+
+.ground-text {
+  color: darken($ground, 10%);
+}
+
+.rock-text {
+  color: darken($rock, 10%);
+}
+
+.bug-text {
+  color: darken($bug, 10%);
+}
+
+.ghost-text {
+  color: darken($ghost, 10%);
+}
+
+.steel-text {
+  color: darken($steel, 10%);
+}
+
+.fire-text {
+  color: darken($fire, 10%);
+}
+
+.water-text {
+  color: darken($water, 10%);
+}
+
+.grass-text {
+  color: darken($grass, 10%);
+}
+
+.electric-text {
+  color: darken($electric, 10%);
+}
+
+.psychic-text {
+  color: darken($psychic, 10%);
+}
+
+.ice-text {
+  color: darken($ice, 10%);
+}
+
+.dragon-text {
+  color: darken($dragon, 10%);
+}
+
+.dark-text {
+  color: darken($dark, 10%);
+}
+
+.fairy-text {
+  color: darken($fairy, 10%);
+}
+
+.unknown-text {
+  color: darken($unknown, 10%);
+}
+
+.shadow-text {
+  color: darken($shadow, 10%);
 }

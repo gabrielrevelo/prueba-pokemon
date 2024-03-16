@@ -1,10 +1,21 @@
 .card {
-  :hover {
-    cursor: pointer;
-  }
+  min-width: 344px;
+  max-width: 704px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.card-img-bottom {
-  height: 160px;
+.hover-effect:hover {
+  cursor: pointer;
+  transform: scale(1.025);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.pokemon-img {
+  height: 128px;
   object-fit: contain;
+}
+
+.badge {
+  height: fit-content;
 }

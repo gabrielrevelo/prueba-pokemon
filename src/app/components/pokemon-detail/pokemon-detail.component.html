@@ -1,0 +1,11 @@
+@if (pokemon) {
+<app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+} @else if (loading) {
+<div class="d-flex justify-content-center">
+  <div class="spinner-border"></div>
+</div>
+} @else {
+<div class="d-flex justify-content-center">
+  <p class="text-danger">No Pokemon found</p>
+</div>
+}

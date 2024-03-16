@@ -1,17 +1,66 @@
-<div class="card text-center w-100 h-100" [routerLink]="['/detail', pokemon.name]">
-  <div class="card-body">
-    <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
-    <div class="d-flex gap-2 justify-content-center">
-      @for (type of pokemon.types; track $index) {
-      <span class="badge" [ngClass]="type.type.name">{{
-        type.type.name | titlecase
-      }}</span>
-      }
+<div
+  class="card h-100 mx-auto"
+  [class.hover-effect]="!showDetails"
+  [routerLink]="['/detail', pokemon.id]"
+>
+  <div class="d-flex flex-column flex-sm-row">
+    <div class="w-100">
+      <div class="card-body d-flex flex-column h-100 justify-content-between">
+        <h2
+          class="card-title text-center text-sm-start pokemon-text"
+          [ngClass]="pokemon.types[0].type.name + '-text'"
+        >
+          <b>{{ pokemon.name | titlecase }}</b>
+        </h2>
+        <div
+          class="d-flex flex-column gap-1 align-items-center align-items-sm-start"
+        >
+          @if (showDetails) {
+          <div><b>Height:</b> {{ pokemon.height * 10 }} cm <br /></div>
+          <div><b>Weight:</b> {{ pokemon.weight / 10 }} kg <br /></div>
+          }
+          <div class="d-flex gap-2 flex-wrap">
+            @if (showDetails) {
+            <b>Type:</b>
+            } @for (type of pokemon.types; track $index) {
+            <span class="badge" [ngClass]="type.type.name">
+              {{ type.type.name | titlecase }}
+            </span>
+            }
+          </div>
+          <div class="d-flex gap-2 flex-wrap">
+            @if (showDetails) {
+            <b>Ability:</b>
+            } @for (ability of pokemon.abilities; track $index) {
+            <span class="badge text-bg-light">
+              {{ ability.ability.name | titlecase }}
+            </span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center p-3 pl-0">
+      <img
+        [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
+        class="pokemon-img"
+        [alt]="pokemon.name"
+      />
     </div>
   </div>
-  <img
-    [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
-    class="card-img-bottom"
-    [alt]="pokemon.name"
-  />
+  @if (showDetails) {
+  <div class="card-body d-flex flex-column justify-content-between pt-0">
+    <h5 class="card-title text-center text-sm-start">Base Stats:</h5>
+    @for (stat of pokemon.stats; track $index) {
+    <div class="d-flex">
+      <span class="w-25">
+        {{ stat.stat.name | titlecase }}
+      </span>
+      <progressbar class="w-75" [value]="(stat.base_stat / 255) * 100">
+        {{ stat.base_stat }}</progressbar
+      >
+    </div>
+    }
+  </div>
+  }
 </div>

@@ -13,4 +13,11 @@ export const routes: Routes = [
         (m) => m.PokemonListComponent
       ),
   },
+  {
+    path: 'detail/:name',
+    loadComponent: () =>
+      import('./components/pokemon-detail/pokemon-detail.component').then(
+        (m) => m.PokemonDetailComponent
+      ),
+  }
 ];

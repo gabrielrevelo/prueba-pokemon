@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="row g-2 px-4">
-    @for (pokemon of pokemons; track pokemon.name) {
-    <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-      <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
-    </div>
-    }
+<div class="row g-2">
+  @for (pokemon of pokemons; track pokemon.name) {
+  <div class="col-xxl-4 col-lg-6 col-12">
+    <app-pokemon-card
+      [pokemon]="pokemon"
+      [showDetails]="false"
+    ></app-pokemon-card>
   </div>
-  <div class="mt-4 d-flex justify-content-center">
-    <pagination
-      [totalItems]="totalItems"
-      [itemsPerPage]="itemsPerPage"
-      [(ngModel)]="currentPage"
-      (pageChanged)="loadPokemons($event)"
-      [maxSize]="5"
-      [boundaryLinks]="true"
-      previousText="&lsaquo;"
-      nextText="&rsaquo;"
-      firstText="&laquo;"
-      lastText="&raquo;"
-    ></pagination>
-  </div>
+  }
+</div>
+<div class="mt-4 d-flex justify-content-center">
+  <pagination
+    [totalItems]="totalItems"
+    [itemsPerPage]="itemsPerPage"
+    [(ngModel)]="currentPage"
+    (pageChanged)="loadPokemons($event)"
+    [maxSize]="5"
+    [boundaryLinks]="true"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+    class="my-pagination"
+  ></pagination>
 </div>

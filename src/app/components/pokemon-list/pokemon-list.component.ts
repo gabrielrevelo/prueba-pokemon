@@ -19,6 +19,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
     FormsModule,
   ],
   templateUrl: './pokemon-list.component.html',
+  styleUrl: './pokemon-list.component.scss',
 })
 export class PokemonListComponent {
   pokemonService = inject(PokemonService);
@@ -26,7 +27,7 @@ export class PokemonListComponent {
 
   // Paginacion
   totalItems = 0;
-  itemsPerPage = 12;
+  itemsPerPage = 8;
   currentPage = 1;
 
   ngOnInit() {
