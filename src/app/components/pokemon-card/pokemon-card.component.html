@@ -1,11 +1,17 @@
-<div class="card text-center" [routerLink]="['/pokemon', pokemon.name]">
+<div class="card text-center w-100 h-100" [routerLink]="['/detail', pokemon.name]">
   <div class="card-body">
-    <div>
-      <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
-      <div class="d-flex gap-2 justify-content-center">
-        <span *ngFor="let type of pokemon.types" class="badge" [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>
-      </div>
+    <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
+    <div class="d-flex gap-2 justify-content-center">
+      @for (type of pokemon.types; track $index) {
+      <span class="badge" [ngClass]="type.type.name">{{
+        type.type.name | titlecase
+      }}</span>
+      }
     </div>
   </div>
-  <img [src]="pokemon.sprites.other?.['official-artwork']?.front_default" class="card-img-top" [alt]="pokemon.name">
+  <img
+    [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
+    class="card-img-bottom"
+    [alt]="pokemon.name"
+  />
 </div>
