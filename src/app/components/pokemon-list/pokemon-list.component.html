@@ -1,7 +1,8 @@
-<div>
+<div class="d-flex gap-2 justify-content-between align-items-center mb-2">
+  <b>Type:</b>
   <select
     [(ngModel)]="selectedType"
-    class="form-select mb-2"
+    class="form-select"
     (change)="filterByType()"
   >
     <option value="">All</option>
