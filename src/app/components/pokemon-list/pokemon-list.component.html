@@ -26,6 +26,7 @@
     }
   </select>
 </div>
+@if (totalItems > 0) {
 <div class="row g-2">
   @for (pokemon of pokemons; track pokemon.name) {
   <div class="col-lg-4 col-md-6 col-12">
@@ -52,3 +53,8 @@
   ></pagination>
   <div><b>Total:</b> {{ totalItems }}</div>
 </div>
+} @else {
+<div class="d-flex justify-content-center">
+  <p class="text-danger">No Pokemon found</p>
+</div>
+}
