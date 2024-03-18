@@ -1,6 +1,20 @@
+<div>
+  <select
+    [(ngModel)]="selectedType"
+    class="form-select mb-2"
+    (change)="filterByType()"
+  >
+    <option value="">All</option>
+    @for (type of types; track $index) {
+    <option [ngClass]="type + '-text'" [value]="type">
+      {{ type | titlecase }}
+    </option>
+    }
+  </select>
+</div>
 <div class="row g-2">
   @for (pokemon of pokemons; track pokemon.name) {
-  <div class="col-xxl-4 col-lg-6 col-12">
+  <div class="col-lg-4 col-md-6 col-12">
     <app-pokemon-card
       [pokemon]="pokemon"
       [showDetails]="false"
@@ -8,7 +22,7 @@
   </div>
   }
 </div>
-<div class="mt-4 d-flex justify-content-center">
+<div class="mt-2 d-flex gap-2 justify-content-between align-items-center">
   <pagination
     [totalItems]="totalItems"
     [itemsPerPage]="itemsPerPage"
@@ -20,6 +34,7 @@
     nextText="&rsaquo;"
     firstText="&laquo;"
     lastText="&raquo;"
-    class="my-pagination"
+    class="my-pagination m-0"
   ></pagination>
+  <div><b>Total:</b> {{ totalItems }}</div>
 </div>

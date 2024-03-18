@@ -25,14 +25,18 @@ export class PokemonListComponent {
   pokemonService = inject(PokemonService);
   pokemons: Pokemon[] = [];
 
+  // Filtro
+  types: string[] = [];
+  selectedType = '';
+
   // Paginacion
   totalItems = 0;
-  itemsPerPage = 8;
+  itemsPerPage = 9;
   currentPage = 1;
 
   ngOnInit() {
-    this.pokemonService.getTotalPokemons().subscribe((total) => {
-      this.totalItems = total;
+    this.pokemonService.getTypes().subscribe((types) => {
+      this.types = types;
     });
     this.loadPokemons({
       page: this.currentPage,
@@ -43,9 +47,19 @@ export class PokemonListComponent {
   loadPokemons(event: PageChangedEvent) {
     const offset = (event.page - 1) * this.itemsPerPage;
     this.pokemonService
-      .getPokemons(offset, this.itemsPerPage)
+      .getPokemons(offset, this.itemsPerPage, this.selectedType)
       .subscribe((pokemons) => {
         this.pokemons = pokemons;
       });
+    this.pokemonService
+      .getTotalPokemons(this.selectedType)
+      .subscribe((total) => {
+        this.totalItems = total;
+      });
+  }
+
+  filterByType() {
+    this.currentPage = 1;
+    this.loadPokemons({ page: 1, itemsPerPage: this.itemsPerPage });
   }
 }

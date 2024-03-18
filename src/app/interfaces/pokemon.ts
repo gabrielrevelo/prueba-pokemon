@@ -1,8 +1,8 @@
-export interface PokemonApiResponse {
+export interface ApiResponse {
   count:    number;
   next:     string;
-  previous: null;
-  results: Pokemon[];
+  previous: string;
+  results: any[];
 }
 
 export interface Pokemon {
@@ -24,7 +24,7 @@ export interface Pokemon {
   species:                  Species;
   sprites:                  Sprites;
   stats:                    Stat[];
-  types:                    Type[];
+  types:                    TypeSlot[];
   weight:                   number;
 }
 
@@ -179,8 +179,19 @@ export interface Stat {
   stat:      Species;
 }
 
-export interface Type {
+export interface TypeSlot {
   slot: number;
   type: Species;
 }
 
+export interface Type {
+  name: string;
+  url:  string;
+}
+
+export interface TypeApiResponse {
+  count:    number;
+  next:     string;
+  previous: string;
+  results: Type[];
+}
