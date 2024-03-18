@@ -67,8 +67,12 @@ export class PokemonListComponent {
       });
     this.pokemonService
       .getTotalPokemons(this.selectedType, this.selectedAbility)
-      .subscribe((total) => {
-        this.totalItems = total;
+      .subscribe({
+        next: (total) => {
+          this.totalItems = total;
+          this.loading = false;
+        },
+        error: (err) => (this.loading = false),
       });
   }
 
