@@ -41,11 +41,19 @@
       </div>
     </div>
     <div class="d-flex justify-content-center align-items-center p-3 pl-0">
+      @if (pokemon.sprites.other?.['official-artwork']?.front_default) {
       <img
         [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
         class="pokemon-img"
         [alt]="pokemon.name"
       />
+      } @else {
+      <img
+        src="https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
+        class="pokemon-img"
+        alt="Pokeball"
+      />
+      }
     </div>
   </div>
   @if (showDetails) {
