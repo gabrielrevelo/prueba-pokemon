@@ -19,7 +19,6 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
     FormsModule,
   ],
   templateUrl: './pokemon-list.component.html',
-  styleUrl: './pokemon-list.component.scss',
 })
 export class PokemonListComponent {
   pokemonService = inject(PokemonService);

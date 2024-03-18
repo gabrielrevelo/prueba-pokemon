@@ -1,3 +1,6 @@
+<div class="mb-4 d-flex justify-content-center align-items-center">
+  <button class="btn btn-warning" [routerLink]="['/list']">Return to list</button>
+</div>
 @if (pokemon) {
 <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
 } @else if (loading) {
