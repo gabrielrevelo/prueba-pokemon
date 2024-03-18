@@ -28,6 +28,8 @@ export class PokemonListComponent {
   // Filtro
   types: string[] = [];
   selectedType = '';
+  abilities: string[] = [];
+  selectedAbility = '';
 
   // Paginacion
   totalItems = 0;
@@ -38,6 +40,9 @@ export class PokemonListComponent {
     this.pokemonService.getTypes().subscribe((types) => {
       this.types = types;
     });
+    this.pokemonService.getAbilities().subscribe((abilities) => {
+      this.abilities = abilities;
+    });
     this.loadPokemons({
       page: this.currentPage,
       itemsPerPage: this.itemsPerPage,
@@ -47,12 +52,12 @@ export class PokemonListComponent {
   loadPokemons(event: PageChangedEvent) {
     const offset = (event.page - 1) * this.itemsPerPage;
     this.pokemonService
-      .getPokemons(offset, this.itemsPerPage, this.selectedType)
+      .getPokemons(offset, this.itemsPerPage, this.selectedType, this.selectedAbility)
       .subscribe((pokemons) => {
         this.pokemons = pokemons;
       });
     this.pokemonService
-      .getTotalPokemons(this.selectedType)
+      .getTotalPokemons(this.selectedType, this.selectedAbility)
       .subscribe((total) => {
         this.totalItems = total;
       });
@@ -60,6 +65,13 @@ export class PokemonListComponent {
 
   filterByType() {
     this.currentPage = 1;
+    this.selectedAbility = '';
+    this.loadPokemons({ page: 1, itemsPerPage: this.itemsPerPage });
+  }
+
+  filterByAbility() {
+    this.currentPage = 1;
+    this.selectedType = '';
     this.loadPokemons({ page: 1, itemsPerPage: this.itemsPerPage });
   }
 }

@@ -13,10 +13,14 @@ export class PokemonService {
   getPokemons(
     offset: number,
     limit: number,
-    type: string
+    type: string,
+    ability: string
   ): Observable<Pokemon[]> {
     if (type) {
       return this.getPokemonsByType(offset, limit, type);
+    }
+    if (ability) {
+      return this.getPokemonsByAbility(offset, limit, ability);
     }
     const url = `${this.baseUrl}/pokemon/?offset=${offset}&limit=${limit}`;
     return this.http.get<ApiResponse>(url).pipe(
@@ -63,10 +67,42 @@ export class PokemonService {
     );
   }
 
-  getTotalPokemons(type: string): Observable<number> {
+  getAbilities(): Observable<string[]> {
+    const url = `${this.baseUrl}/ability?limit=1000`;
+    return this.http
+      .get<any>(url)
+      .pipe(
+        map((response: any) =>
+          response.results.map((ability: any) => ability.name)
+        )
+      );
+  }
+
+  getPokemonsByAbility(
+    offset: number,
+    limit: number,
+    ability: string
+  ): Observable<Pokemon[]> {
+    const url = `${this.baseUrl}/ability/${ability}`;
+    return this.http.get(url).pipe(
+      map((response: any) =>
+        response.pokemon
+          .slice(offset, offset + limit)
+          .map((pokemon: any) => this.getPokemonDetails(pokemon.pokemon.name))
+      ),
+      mergeMap((pokemonObservables: Observable<Pokemon>[]) =>
+        forkJoin(pokemonObservables)
+      )
+    );
+  }
+
+  getTotalPokemons(type: string, ability: string): Observable<number> {
     if (type) {
-      console.log('type', type);
       const url = `${this.baseUrl}/type/${type}`;
+      return this.http.get(url).pipe(map((response: any) => response.pokemon.length));
+    }
+    if (ability) {
+      const url = `${this.baseUrl}/ability/${ability}`;
       return this.http.get(url).pipe(map((response: any) => response.pokemon.length));
     }
     const url = `${this.baseUrl}/pokemon/?offset=0&limit=1`;

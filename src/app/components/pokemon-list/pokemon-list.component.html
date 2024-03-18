@@ -1,4 +1,4 @@
-<div class="d-flex gap-2 justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 justify-content-between align-items-center mb-4">
   <b>Type:</b>
   <select
     [(ngModel)]="selectedType"
@@ -7,8 +7,21 @@
   >
     <option value="">All</option>
     @for (type of types; track $index) {
-    <option [ngClass]="type + '-text'" [value]="type">
+    <option class="text-white" [ngClass]="type" [value]="type">
       {{ type | titlecase }}
+    </option>
+    }
+  </select>
+  <b>Ability:</b>
+  <select
+    [(ngModel)]="selectedAbility"
+    class="form-select"
+    (change)="filterByAbility()"
+  >
+    <option value="">All</option>
+    @for (ability of abilities; track $index) {
+    <option [value]="ability">
+      {{ ability | titlecase }}
     </option>
     }
   </select>
@@ -23,7 +36,7 @@
   </div>
   }
 </div>
-<div class="mt-2 d-flex gap-2 justify-content-between align-items-center">
+<div class="mt-4 d-flex gap-2 justify-content-between align-items-center">
   <pagination
     [totalItems]="totalItems"
     [itemsPerPage]="itemsPerPage"
