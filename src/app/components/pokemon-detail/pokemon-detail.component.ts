@@ -20,16 +20,14 @@ export class PokemonDetailComponent {
 
   ngOnInit() {
     this.loading = true;
-    setTimeout(() => {
-      this.pokemonService.getPokemonDetails(this.name!).subscribe({
-        next: (pokemon) => {
-          this.pokemon = pokemon;
-          this.loading = false;
-        },
-        error: (error) => {
-          this.loading = false;
-        },
-      });
-    }, 1000);
+    this.pokemonService.getPokemonDetails(this.name!).subscribe({
+      next: (pokemon) => {
+        this.pokemon = pokemon;
+        this.loading = false;
+      },
+      error: (error) => {
+        this.loading = false;
+      },
+    });
   }
 }
