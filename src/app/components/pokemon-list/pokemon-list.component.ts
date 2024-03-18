@@ -35,6 +35,9 @@ export class PokemonListComponent {
   itemsPerPage = 9;
   currentPage = 1;
 
+  // Carga
+  loading = false;
+
   ngOnInit() {
     this.pokemonService.getTypes().subscribe((types) => {
       this.types = types;
@@ -49,11 +52,18 @@ export class PokemonListComponent {
   }
 
   loadPokemons(event: PageChangedEvent) {
+    this.loading = true;
     const offset = (event.page - 1) * this.itemsPerPage;
     this.pokemonService
-      .getPokemons(offset, this.itemsPerPage, this.selectedType, this.selectedAbility)
+      .getPokemons(
+        offset,
+        this.itemsPerPage,
+        this.selectedType,
+        this.selectedAbility
+      )
       .subscribe((pokemons) => {
         this.pokemons = pokemons;
+        this.loading = false;
       });
     this.pokemonService
       .getTotalPokemons(this.selectedType, this.selectedAbility)
